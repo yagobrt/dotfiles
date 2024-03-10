@@ -1,0 +1,19 @@
+# Shortcuts for some directories
+
+map gv cd ~/Vídeos/
+map gdl cd ~/Descargas/
+map gdc cd ~/Documentos/
+map gi cd ~/Imágenes/
+map ge cd ~/Escritorio/
+map gmu cd ~/Música/
+map gmt cd /media/yago/
+
+map gj cd ~/Documentos/japanese/
+map gb cd ~/Documentos/books/
+map gn cd ~/Documentos/obsidian-notes/
+map gr cd ~/Documentos/reference/
+map gu cd ~/Documentos/uni/2-Cuatri/
+map gtf cd ~/Documentos/uni/tfg/
+
+# Go to trash
+map gtr cd ~/.local/share/Trash/files/

@@ -1,0 +1,268 @@
+# vim:ft=dircolors
+# (This is not a dircolors file but it helps to highlight colors and comments)
+
+# lf colorscheme based on exa colors
+# default values from dircolors
+# (entries with a leading # are not implemented in lf)
+# #no     00              # NORMAL
+# fi      00              # FILE
+# #rs     0               # RESET
+# di      01;34           # DIR
+# ln      01;36           # LINK
+# #mh     00              # MULTIHARDLINK
+# pi      40;33           # FIFO
+# so      01;35           # SOCK
+# #do     01;35           # DOOR
+# bd      40;33;01        # BLK
+# cd      40;33;01        # CHR
+# or      40;31;01        # ORPHAN
+# #mi     00              # MISSING
+# su      37;41           # SETUID
+# sg      30;43           # SETGID
+# #ca     30;41           # CAPABILITY
+# tw      30;42           # STICKY_OTHER_WRITABLE
+# ow      34;42           # OTHER_WRITABLE
+# st      37;44           # STICKY
+# ex      01;32           # EXEC
+
+# default values from lf (with matching order)
+# ln      01;36   # LINK
+# or      31;01   # ORPHAN
+# tw      01;34   # STICKY_OTHER_WRITABLE
+# ow      01;34   # OTHER_WRITABLE
+# st      01;34   # STICKY
+# di      01;34   # DIR
+# pi      33      # FIFO
+# so      01;35   # SOCK
+# bd      33;01   # BLK
+# cd      33;01   # CHR
+# su      01;32   # SETUID
+# sg      01;32   # SETGID
+# ex      01;32   # EXEC
+# fi      00      # FILE
+
+# file types (with matching order)
+ln      01;36   # LINK
+or      31;01   # ORPHAN
+tw      34      # STICKY_OTHER_WRITABLE
+ow      34      # OTHER_WRITABLE
+st      01;34   # STICKY
+di      01;34   # DIR
+pi      33      # FIFO
+so      01;35   # SOCK
+bd      33;01   # BLK
+cd      33;01   # CHR
+su      01;32   # SETUID
+sg      01;32   # SETGID
+ex      01;32   # EXEC
+fi      00      # FILE
+
+# immediate file types
+*README             1;4;33
+*README.txt         1;4;33
+*README.md          1;4;33
+*readme.txt         1;4;33
+*readme.md          1;4;33
+*.ninja             1;4;33
+*Makefile           1;4;33
+*Cargo.toml         1;4;33
+*SConstruct         1;4;33
+*CMakeLists.txt     1;4;33
+*build.gradle       1;4;33
+*pom.xml            1;4;33
+*Rakefile           1;4;33
+*package.json       1;4;33
+*Gruntfile.js       1;4;33
+*Gruntfile.coffee   1;4;33
+*BUILD              1;4;33
+*BUILD.bazel        1;4;33
+*WORKSPACE          1;4;33
+*build.xml          1;4;33
+*Podfile            1;4;33
+*webpack.config.js  1;4;33
+*meson.build        1;4;33
+*composer.json      1;4;33
+*RoboFile.php       1;4;33
+*PKGBUILD           1;4;33
+*Justfile           1;4;33
+*Procfile           1;4;33
+*Dockerfile         1;4;33
+*Containerfile      1;4;33
+*Vagrantfile        1;4;33
+*Brewfile           1;4;33
+*Gemfile            1;4;33
+*Pipfile            1;4;33
+*build.sbt          1;4;33
+*mix.exs            1;4;33
+*bsconfig.json      1;4;33
+*tsconfig.json      1;4;33
+
+
+# archives or compressed (dircolors defaults)
+*.tar   01;31
+*.tgz   01;31
+*.arc   01;31
+*.arj   01;31
+*.taz   01;31
+*.lha   01;31
+*.lz4   01;31
+*.lzh   01;31
+*.lzma  01;31
+*.tlz   01;31
+*.txz   01;31
+*.tzo   01;31
+*.t7z   01;31
+*.zip   01;31
+*.z     01;31
+*.Z     01;31
+*.dz    01;31
+*.gz    01;31
+*.lrz   01;31
+*.lz    01;31
+*.lzo   01;31
+*.xz    01;31
+*.zst   01;31
+*.tzst  01;31
+*.bz2   01;31
+*.bz    01;31
+*.tbz   01;31
+*.tbz2  01;31
+*.tz    01;31
+*.deb   01;31
+*.rpm   01;31
+*.jar   01;31
+*.war   01;31
+*.ear   01;31
+*.sar   01;31
+*.rar   01;31
+*.alz   01;31
+*.ace   01;31
+*.zoo   01;31
+*.cpio  01;31
+*.7z    01;31
+*.rz    01;31
+*.cab   01;31
+*.wim   01;31
+*.swm   01;31
+*.dwm   01;31
+*.esd   01;31
+*.iso   00;31
+*.kdbx  00;31  # keepass database
+
+# image formats (yellow)
+*.jpg   00;33
+*.jpeg  00;33
+*.mjpg  00;33
+*.mjpeg 00;33
+*.gif   00;33
+*.bmp   00;33
+*.pbm   00;33
+*.pgm   00;33
+*.ppm   00;33
+*.tga   00;33
+*.xbm   00;33
+*.xpm   00;33
+*.tif   00;33
+*.tiff  00;33
+*.png   00;33
+*.svg   00;33
+*.svgz  00;33
+*.mng   00;33
+*.pcx   00;33
+*.cbr   38;5;90
+*.cbz   38;5;90
+
+# video (purple)
+*.mov   01;35
+*.mpg   01;35
+*.mpeg  01;35
+*.m2v   01;35
+*.mkv   01;35
+*.webm  01;35
+*.ogm   01;35
+*.mp4   01;35
+*.m4v   01;35
+*.mp4v  01;35
+*.vob   01;35
+*.qt    01;35
+*.nuv   01;35
+*.wmv   01;35
+*.asf   01;35
+*.rm    01;35
+*.rmvb  01;35
+*.flc   01;35
+*.avi   01;35
+*.fli   01;35
+*.flv   01;35
+*.gl    01;35
+*.dl    01;35
+*.xcf   01;35
+*.xwd   01;35
+*.yuv   01;35
+*.cgm   01;35
+*.emf   01;35
+*.ogv   01;35
+*.ogx   01;35
+*.m3u   01;35
+
+# audio formats (dircolors defaults)
+*.aac   00;36
+*.au    00;36
+*.flac  00;36
+*.m4a   00;36
+*.mid   00;36
+*.midi  00;36
+*.mka   00;36
+*.mp3   00;36
+*.mpc   00;36
+*.ogg   00;36
+*.ra    00;36
+*.wav   00;36
+*.oga   00;36
+*.opus  00;36
+*.spx   00;36
+*.xspf  00;36
+
+# documents (blue)
+*.djvu      38;5;62
+*.doc       38;5;62
+*.docx      38;5;62
+*.dvi       38;5;62
+*.eml       38;5;62
+*.eps       38;5;62
+*.fotd      38;5;62
+*.key       38;5;62
+*.keynote   38;5;62
+*.numbers   38;5;62
+*.odp       38;5;62
+*.odt       38;5;62
+*.pages     38;5;62
+*.pdf       38;5;62
+*.ppt       38;5;62
+*.pptx      38;5;62
+*.rtf       38;5;62
+*.xls       38;5;62
+*.xlsx      38;5;62
+
+# temp (light gray)
+*~      00;37
+*.tmp   00;37
+*.swp   00;37
+*.swo   00;37
+*.swn   00;37
+*.bak   00;37
+*.bkp   00;37
+*.bk    00;37
+
+# compiled (light brown)
+*.class 38;5;137
+*.elc   38;5;137
+*.hi    38;5;137
+*.o     38;5;137
+*.pyc   38;5;137
+*.zwc   38;5;137
+*.ko    38;5;137
+
+# misc (bold)
+*.md    01;37
+*.txt   01;37
