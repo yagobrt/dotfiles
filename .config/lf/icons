@@ -169,7 +169,7 @@ dotfiles/  󰖷
 *.fsi           
 *.rs            
 *.rlib          
-*.zig		
+*.zig           
 *.d             
 *.erl           
 *.hrl           
@@ -198,6 +198,7 @@ dotfiles/  󰖷
 *.apk           
 *.xapk          
 *.src           
+*.gd            
 
 # file names (vim-devicons) (case-insensitive not supported in lf)
 *gruntfile.coffee       
@@ -353,6 +354,7 @@ Vagrantfile             
 *.dwm   
 *.esd   
 *.xpi   
+*.kdbx  󰌋
 
 # image formats
 *.jpg   
@@ -436,6 +438,7 @@ Vagrantfile             
 *.aup   
 *.cue   
 *.m3u   󰲸
+*.m4b   󰁧
 
 # text formats
 *.txt   
@@ -456,6 +459,7 @@ Vagrantfile             
 *.epub  
 *.djvu  
 *.mobi  
+*.azw3  
 *.cbr   
 *.cbz   
 *.odt   
