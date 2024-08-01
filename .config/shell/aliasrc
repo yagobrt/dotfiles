@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Verbosity and settings for common commands
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -Iv"
+alias mkdir="mkdir -pv"
+
+# Colorize commands when possible
+alias ls="ls -hN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+
+# Aliases for cleaning the home directory
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
+# Make lf change directory when exited
+alias lf='cd "$(command lf -print-last-dir "$@")"'
+
+# Fuzzy cd
+alias uni='cd ~/Documentos/uni/ && cd "$(find */ -maxdepth 1 -type d | fzf --cycle)"'
+alias notas="cd ~/Documentos/obsidian-notes/"
+alias prog='cd ~/Documentos/programming/ && cd "$(find */ -maxdepth 1 -type d | fzf --cycle)"'
+alias cfg='cd ~/Documentos/dotfiles/ && cd "$(find .config -maxdepth 1 -type d | fzf --cycle)"'

@@ -17,5 +17,4 @@ return {
 		new_notes_location = "current_dir",
 		disable_frontmatter = true,
 	},
-	vim.keymap.set("n", "<leader>ww", "<cmd>e ~/Documentos/obsidian-notes/zelda.md<cr>"),
 }

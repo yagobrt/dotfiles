@@ -1,5 +1,5 @@
 return {
-    'zbirenbaum/copilot.lua',
+    "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
@@ -8,8 +8,8 @@ return {
             auto_trigger = true,
             debounce = 75,
             keymap = {
-                accept = "<M-l>"
-            }
+                accept = "<M-l>",
+            },
         },
         filetypes = {
             yaml = false,
@@ -20,9 +20,10 @@ return {
             hgcommit = false,
             svn = false,
             cvs = false,
+            go = false,
             ["."] = false,
         },
-        copilot_node_command = 'node', -- Node.js version must be > 18.x
+        copilot_node_command = "node", -- Node.js version must be > 18.x
         server_opts_overrides = {},
-    }
+    },
 }

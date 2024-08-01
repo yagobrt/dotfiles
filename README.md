@@ -13,5 +13,5 @@ git clone https://github.com/100451322/dotfiles.git && cd dotfiles
 
 2. Create the symlinks with stow
 ```bash
-stow .
+stow -t ~ .
 ```
