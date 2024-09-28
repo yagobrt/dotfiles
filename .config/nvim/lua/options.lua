@@ -27,22 +27,22 @@ vim.opt.smartcase = true
 vim.opt.title = true
 vim.opt.isfname:append("@-@")
 vim.opt.termguicolors = true
-vim.opt.splitbelow = true
+vim.opt.splitbelow = false
 vim.opt.splitright = true
 vim.opt.colorcolumn = "80"
 
 vim.opt.timeout = true
 vim.opt.timeoutlen = 500
 vim.opt.clipboard:append("unnamedplus")
-vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.mouse = "a"
 
 -- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
