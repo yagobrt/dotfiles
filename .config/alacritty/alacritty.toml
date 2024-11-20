@@ -1,5 +1,3 @@
-# Configuration automatically generated from the yaml file
-
 live_config_reload = true
 
 [colors]
@@ -65,10 +63,6 @@ foreground = "#CDD6F4"
 background = "#A6E3A1"
 foreground = "#1E1E2E"
 
-# [colors.search.footer_bar]
-# background = "#A6ADC8"
-# foreground = "#1E1E2E"
-
 [colors.search.matches]
 background = "#A6ADC8"
 foreground = "#1E1E2E"
@@ -123,8 +117,8 @@ multiplier = 5
 save_to_clipboard = true
 
 [shell]
-args = ["--login"]
-program = "/bin/bash"
+args = ["new-session", "-A", "-D", "-s", "main"]
+program = "/usr/bin/tmux"
 
 [window]
 decorations = "full"
