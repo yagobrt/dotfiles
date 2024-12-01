@@ -1,0 +1,5 @@
+#!/bin/sh
+# Shell Completions for syncthing
+
+autoload -U +X bashcompinit && bashcompinit
+complete -C /usr/bin/syncthing syncthing
