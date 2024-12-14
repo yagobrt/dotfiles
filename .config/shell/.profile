@@ -28,3 +28,6 @@ export VISUAL="nvim"
 
 # Set default shell
 export SHELL="/usr/bin/zsh"
+
+# Colorful man
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
