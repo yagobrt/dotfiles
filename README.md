@@ -8,7 +8,7 @@ My personal dotfiles
 ## Instalation
 1. Clone the repo
 ```bash
-git clone https://github.com/100451322/dotfiles.git && cd dotfiles
+git clone https://github.com/yagobrt/dotfiles.git && cd dotfiles
 ```
 
 2. Create the symlinks with stow

@@ -46,8 +46,8 @@ fi             # FILE
 ~/Games        		󰺷
 ~/src          		
 ~/.config     		󰖷
-# ~/Documentos/dotfiles/  󰖷
-dotfiles/  󰖷
+dotfiles/			󰖷
+movil/				
 
 # file extensions (vim-devicons)
 *.styl          

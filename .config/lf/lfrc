@@ -13,6 +13,10 @@ set shellopts '-eu'
 # set icons for file types
 set icons true
 
+# show info about files and folders
+set info size
+set dircounts
+
 # set internal field separator (IFS) to "\n" for shell commands
 # This is useful to automatically split file names in $fs and $fx properly
 # since default file separator used in these variables (i.e. 'filesep' option)

@@ -225,6 +225,8 @@ fi      00      # FILE
 *.xspf  00;36
 
 # documents (blue)
+*.epub      38;5;62
+*.mobi      38;5;62
 *.djvu      38;5;62
 *.doc       38;5;62
 *.docx      38;5;62
