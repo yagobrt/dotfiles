@@ -6,7 +6,8 @@ setxkbmap es
 
 cd ~/Documentos/obsidian-notes/ || exit
 
-selected=$(grep -roP '\[.*?\]\((https?://.*?)\)' -- *.md | sort -u | rofi -dmenu -l 20)
+# Extraer los enlaces si están tal cual o en formato md [text](link)
+selected=$(grep -roP '(?:\[.*\]\()?(https?://[^\s)]+)(?:\))?' --include=*.md --  | sort -u | rofi -dmenu -l 20 -i)
 if [ -z "$selected" ]; then
 	exit
 fi
@@ -15,5 +16,6 @@ link=$(echo "$selected" | sed -E 's/.*\((https?:\/\/[^)]+)\).*/\1/')
 
 
 # Copiar al portapapeles e insertar
-echo -n "$link" | xclip -selection primary
+echo -n "$link" | xclip -selection primary   # Mid click
+echo -n "$link" | xclip -selection clipboard # <C-v>
 xdotool key --clearmodifiers Shift+Insert
