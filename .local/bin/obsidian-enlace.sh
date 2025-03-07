@@ -4,7 +4,7 @@
 # Configurar teclado para que no haya problemas
 setxkbmap es
 
-cd ~/Documentos/obsidian-notes/ || exit
+cd "$HOME/Documentos/obsidian-notes/" || exit
 
 # Extraer los enlaces si están tal cual o en formato md [text](link)
 selected=$(grep -roP '(?:\[.*\]\()?(https?://[^\s)]+)(?:\))?' --include=*.md --  | sort -u | rofi -dmenu -l 20 -i)
