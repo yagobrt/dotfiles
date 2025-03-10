@@ -12,7 +12,7 @@ if [ -z "$selected" ]; then
 	exit
 fi
 
-link=$(echo "$selected" | sed -E 's/.*\((https?:\/\/[^)]+)\).*/\1/')
+link=$(echo "$selected" | sed -E 's/.*(https?:\/\/[^)]+).*/\1/')
 
 
 # Copiar al portapapeles e insertar
