@@ -86,8 +86,8 @@ map R :reload
 cmd trash ${{
    set -f
    # If there is more than one file, show number instead of names
-   if [ $(echo "$(fx)" | wc -w) -gt 1 ]; then
-     printf "move %d files to trash? [y/N] " $(echo "$fx" | wc -w)
+   if [ $(echo "${fx}" | wc -l) -gt 1 ]; then
+     printf "move %d files to trash? [y/N] " $(echo "$fx" | wc -l)
    else
      printf "move '$fx' to trash? [y/N] "
    fi
@@ -105,8 +105,8 @@ cmd trash ${{
 }}
 # remove current file or selected files permanently
 cmd delete ${{
-    if [ $(echo $fx | wc -w) -gt 1 ]; then
-      printf "delete %d files? [y/N] " $(echo $fx | wc -w)
+    if [ $(echo "${fx}" | wc -l) -gt 1 ]; then
+      printf "delete %d files? [y/N] " $(echo "${fx}" | wc -l)
     else
       printf "delete '$fx'? [y/N] "
     fi
