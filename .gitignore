@@ -1,2 +1,4 @@
 .config/tmux/plugins
 .env
+.config/mpd
+.config/ncmpcpp

@@ -28,3 +28,4 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export KERAS_HOME="${XDG_STATE_HOME}/keras"
 export GOPATH="${XDG_DATA_HOME}/go"
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
+export MPDCONF="$XDG_CONFIG_HOME/mpd/mpd.conf"
