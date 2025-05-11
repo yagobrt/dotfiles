@@ -5,12 +5,17 @@
 setxkbmap es
 
 emoji_file="$HOME/.local/share/emoji.txt"
-if [ ! -f "$emoji_file" ]; then
-	notify-send "No hay archivo de emoji" ":/"
+nerdfont_file="$HOME/.local/share/nerdfont.txt"
+if [ ! -f "$emoji_file" ] && [ ! -f "$nerdfont_file" ]; then
+	notify-send "No hay archivo de emoji ni de símbolos" ":/"
 	exit
 fi
 
-selected=$(rofi -dmenu -l 20 -i < "$emoji_file")
+combined=$(mktemp)
+[ -f "$emoji_file" ] && cat "$emoji_file" >> "$combined"
+[ -f "$nerdfont_file" ] && cat "$nerdfont_file" >> "$combined"
+
+selected=$(rofi -dmenu -l 20 -i < "$combined")
 if [ -z "$selected" ]; then
 	exit
 fi

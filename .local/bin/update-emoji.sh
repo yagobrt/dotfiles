@@ -60,7 +60,7 @@ while IFS= read -r line; do
          # Expected format: "… ; fully-qualified  # 😀 E1.0 grinning face"
          info=$(echo "$line" | sed 's/.*# //')
          # Remove the emoji version (e.g., "E1.0 ") from the beginning
-         emoji_and_name=$(echo "$info" | sed -E 's/E[0-9]+\.[0-9]+ //')
+         emoji_and_name=$(echo "$info" | sed -E 's/E[0-9]+\.[0-9]+/emoji:/')
          # Append the emoji and its name to the output file
          echo "$emoji_and_name" >> "$OUTPUT_FILE"
     fi
