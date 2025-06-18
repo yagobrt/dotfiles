@@ -21,7 +21,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     paths="$HOME/ $HOME/Documentos $HOME/Documentos/programming $HOME/Documentos/uni/tfg $HOME/Documentos/uni/master-fintech"
-    selected=$(find $paths -mindepth 1 -maxdepth 2 -type d | sort | uniq | fzf --cycle)
+    selected=$(find $paths -mindepth 1 -maxdepth 1 -type d | sort | uniq | fzf --cycle)
 fi
 
 if [[ -z "$selected" ]]; then
