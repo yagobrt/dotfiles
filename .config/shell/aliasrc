@@ -15,7 +15,7 @@ alias diff="diff --color=auto"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 # Make lf change directory when exited
-alias lf='cd "$(command lf -print-last-dir "$@")"'
+# alias lf='cd "$(command lf -print-last-dir "$@")"'
 
 # Fuzzy cd
 alias uni='cd ~/Documentos/uni/ && cd "$(find */ -maxdepth 1 -type d | fzf --cycle)"'
