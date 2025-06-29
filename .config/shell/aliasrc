@@ -12,7 +12,9 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 
 # Aliases for cleaning the home directory
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts'
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+
 
 # Make lf change directory when exited
 # alias lf='cd "$(command lf -print-last-dir "$@")"'

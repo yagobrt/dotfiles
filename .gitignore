@@ -2,3 +2,6 @@
 .env
 .config/mpd/*
 !.config/mpd/mpd.conf
+.config/ncmpcpp/*
+!.config/ncmpcpp/config
+!.config/ncmpcpp/bindings
