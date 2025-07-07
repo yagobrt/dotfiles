@@ -1,7 +1,12 @@
 .config/tmux/plugins
 .env
+
+# Musiquilla loquilla
 .config/mpd/*
 !.config/mpd/mpd.conf
 .config/ncmpcpp/*
 !.config/ncmpcpp/config
 !.config/ncmpcpp/bindings
+
+# aWesoMe
+.config/awesome/default
