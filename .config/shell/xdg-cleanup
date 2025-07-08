@@ -33,7 +33,7 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
