@@ -213,7 +213,7 @@ awful.screen.connect_for_each_screen(function(s)
 	-- local names = { "main", "www", "office", "discord", "5", "6", "7", "8", "9" }
 	local names = { " ", " ", " ", " ", "5 ", "6 ", "7 ", "8 ", "9 " }
 	local l = awful.layout.suit -- Just to save some typing: use an alias.
-	local layouts = { l.floating, l.tile, l.floating, l.fair, l.max, l.floating, l.tile.left, l.floating, l.floating }
+	local layouts = { l.tile, l.tile, l.tile, l.tile, l.tile, l.tile, l.tile, l.tile, l.tile }
 	awful.tag(names, s, layouts)
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
