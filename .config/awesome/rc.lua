@@ -540,9 +540,20 @@ awful.rules.rules = {
 		properties = { titlebars_enabled = true },
 	},
 
-	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
+	-- Map applications to their tags
+	-- TODO: Optimizar esto
+	{
+		rule = { class = "Brave" },
+		properties = { screen = 1, tag = " " },
+	},
+	{
+		rule = { class = "obsidian" },
+		properties = { screen = 1, tag = " " },
+	},
+	{
+		rule_any = { class = { "discord", "vesktop" } },
+		properties = { screen = 1, tag = " " },
+	},
 }
 -- }}}
 
