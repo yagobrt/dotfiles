@@ -321,6 +321,9 @@ globalkeys = gears.table.join(
 	end, { description = "go back", group = "client" }),
 
 	-- Standard program
+	awful.key({ modkey }, "c", function()
+		awful.spawn("vesktop")
+	end, { description = "open discord", group = "launcher" }),
 	awful.key({ modkey }, "Return", function()
 		awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
