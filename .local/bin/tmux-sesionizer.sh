@@ -20,15 +20,16 @@ has_session() {
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    paths="$HOME/ $HOME/Documentos $HOME/Documentos/programming $HOME/Documentos/uni/tfg $HOME/Documentos/uni/master-fintech"
-    selected=$(find $paths -mindepth 1 -maxdepth 1 -type d | sort | uniq | fzf --cycle)
+    one_lvl="$(find $HOME $HOME/Descargas $HOME/Vídeos $HOME/Imágenes -maxdepth 1 -type d)"
+    two_lvl="$(find $HOME/Documentos $HOME/Documentos/uni -maxdepth 2 -type d)"
+    selected="$(echo -e "$one_lvl\n$two_lvl" | sort | uniq | fzf --cycle)"
 fi
 
 if [[ -z "$selected" ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_name=$(basename "$selected" | tr .: _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z "$tmux_running" ]]; then
