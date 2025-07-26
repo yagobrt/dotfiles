@@ -20,8 +20,8 @@ has_session() {
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    one_lvl="$(find $HOME $HOME/Descargas $HOME/Vídeos $HOME/Imágenes -maxdepth 1 -type d)"
-    two_lvl="$(find $HOME/Documentos $HOME/Documentos/uni -maxdepth 2 -type d)"
+    one_lvl="$(find -L "$HOME" "$HOME/Descargas" "$HOME/Vídeos" "$HOME/Imágenes" -maxdepth 1 -type d)"
+    two_lvl="$(find -L "$HOME/Documentos" "$HOME/Documentos/uni" -maxdepth 2 -type d)"
     selected="$(echo -e "$one_lvl\n$two_lvl" | sort | uniq | fzf --cycle)"
 fi
 
