@@ -31,3 +31,6 @@ export SHELL="/usr/bin/zsh"
 
 # Colorful man
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+# Load xresources
+xrdb -merge "$HOME/.cache/wal/colors.Xresources"
