@@ -25,6 +25,7 @@ fi
 # Default programs:
 export EDITOR="nvim"
 export VISUAL="nvim"
+export BROWSER="brave-browser"
 
 # Set default shell
 export SHELL="/usr/bin/zsh"
