@@ -16,7 +16,7 @@ if [ -d "/usr/local/go/bin" ] ; then
 fi
 
 if [ -d "$GOPATH/bin" ]; then
-	PATH="$PATH:$GOPATH/bin/"
+	PATH="$PATH:$GOPATH/bin"
 fi
 
 # Rust
