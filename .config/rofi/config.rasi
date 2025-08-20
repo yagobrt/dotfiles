@@ -145,5 +145,5 @@ configuration {
       sorting-method:    "name";
   }
 }
-/* @theme "/usr/share/rofi/themes/arthur.rasi" */
-@theme "/home/yago/.config/rofi/nord.rasi"
+
+@theme "/home/yago/.cache/wal/colors-rofi-dark.rasi"
