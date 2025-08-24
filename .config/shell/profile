@@ -26,12 +26,12 @@ fi
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="brave-browser"
-
-# Set default shell
 export SHELL="/usr/bin/zsh"
-
-# Colorful man
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Load xresources
 xrdb -merge "$HOME/.cache/wal/colors.Xresources"
+
+# GNOME Keyring (for Awesome WM)
+eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+export SSH_AUTH_SOCK
