@@ -3,7 +3,7 @@
 # Output file is in your dotfiles-synced directory via the symlink at ~/.local/share/emoji.txt
 OUTPUT_FILE="$DOTFILES_HOME/.local/share/emoji.txt"
 # Cache file to store the last downloaded raw emoji data
-CACHE_FILE="$HOME/.cache/emoji-test.txt"
+CACHE_FILE="$XDG_CACHE_HOME/emoji-test.txt"
 mkdir -p "$(dirname "$CACHE_FILE")"
 
 # URL for the latest Unicode Emoji Test file

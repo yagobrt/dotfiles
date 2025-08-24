@@ -146,4 +146,4 @@ configuration {
   }
 }
 
-@theme "/home/yago/.cache/wal/colors-rofi-dark.rasi"
+@theme "/home/yago/.local/cache/wal/colors-rofi-dark.rasi"

@@ -30,7 +30,7 @@ export SHELL="/usr/bin/zsh"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Load xresources
-xrdb -merge "$HOME/.cache/wal/colors.Xresources"
+xrdb -merge "$XDG_CACHE_HOME/wal/colors.Xresources"
 
 # GNOME Keyring (for Awesome WM)
 eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
