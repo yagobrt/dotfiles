@@ -24,3 +24,4 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Otros
 vim.keymap.set("n", "<leader>me", "<cmd>!chmod +x %<CR>", { desc = "[M]ake [E]xecutable" })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "[P]roject [V]iew" })
+vim.keymap.set("n", "<leader>cc", vim.cmd.make, { desc = "[C]ode [C]ompile" })
