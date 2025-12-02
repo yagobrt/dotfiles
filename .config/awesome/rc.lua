@@ -378,7 +378,29 @@ globalkeys = gears.table.join(
 	-- Menubar
 	awful.key({ modkey }, "p", function()
 		menubar.show()
-	end, { description = "show the menubar", group = "launcher" })
+	end, { description = "show the menubar", group = "launcher" }),
+
+	-- Dmenu/rofi scripts
+	awful.key({ modkey }, "Insert", function()
+		awful.spawn("obsidian-enlace.sh")
+	end, { description = "bookmark selector", group = "launcher" }),
+	awful.key({ modkey, "Shift" }, "Insert", function()
+		awful.spawn("insert-emoji.sh")
+	end, { description = "emoji selector", group = "launcher" }),
+
+	-- Mpd
+	awful.key({ modkey, "Shift" }, "m", function()
+		awful.spawn(terminal .. " -e ncmpcpp")
+	end, { description = "launch ncmpcpp", group = "music" }),
+	awful.key({ modkey, "Shift" }, "p", function()
+		awful.spawn("mpc toggle")
+	end, { description = "toggle music", group = "music" }),
+	awful.key({ modkey }, ".", function()
+		awful.spawn("mpc next")
+	end, { description = "next song", group = "music" }),
+	awful.key({ modkey }, ",", function()
+		awful.spawn("mpc prev")
+	end, { description = "prev song", group = "music" })
 )
 
 clientkeys = gears.table.join(
