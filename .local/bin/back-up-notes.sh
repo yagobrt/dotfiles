@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Set the display
 export $(egrep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u $LOGNAME pop)/environ)
 
