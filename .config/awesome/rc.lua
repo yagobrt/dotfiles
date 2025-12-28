@@ -321,6 +321,15 @@ globalkeys = gears.table.join(
 	end, { description = "go back", group = "client" }),
 
 	-- Standard program
+	awful.key({ modkey }, "b", function()
+		awful.spawn("brave-browser")
+	end, { description = "open brave", group = "launcher" }),
+	awful.key({ modkey }, "u", function()
+		awful.spawn("obsidian")
+	end, { description = "open obsidian", group = "launcher" }),
+	awful.key({ modkey }, "i", function()
+		awful.spawn("gimp")
+	end, { description = "open gimp", group = "launcher" }),
 	awful.key({ modkey }, "c", function()
 		awful.spawn("vesktop")
 	end, { description = "open discord", group = "launcher" }),
