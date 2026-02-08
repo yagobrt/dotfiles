@@ -402,13 +402,13 @@ globalkeys = gears.table.join(
 		awful.spawn(terminal .. " -e ncmpcpp")
 	end, { description = "launch ncmpcpp", group = "music" }),
 	awful.key({ modkey, "Shift" }, "p", function()
-		awful.spawn("mpc toggle")
+		awful.spawn("playerctl play-pause")
 	end, { description = "toggle music", group = "music" }),
 	awful.key({ modkey }, ".", function()
-		awful.spawn("mpc next")
+		awful.spawn("playerctl next")
 	end, { description = "next song", group = "music" }),
 	awful.key({ modkey }, ",", function()
-		awful.spawn("mpc prev")
+		awful.spawn("playerctl previous")
 	end, { description = "prev song", group = "music" })
 )
 
