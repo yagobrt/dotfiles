@@ -33,5 +33,7 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 xrdb -merge "$XDG_CACHE_HOME/wal/colors.Xresources"
 
 # GNOME Keyring (for Awesome WM)
-eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-export SSH_AUTH_SOCK
+if [[ -n "$DESKTOP_SESSION" ]]; then
+    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+    export SSH_AUTH_SOCK
+fi
