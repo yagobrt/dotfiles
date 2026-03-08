@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "description": "Awesomewm setting of sumneko.lua",
+  "diagnostics": {
+    "enable": true,
+    "globals": [
+      "awesome",
+      "awful",
+      "client",
+      "screen",
+      "tag",
+      "root",
+      "update_timer"
+    ],
+    "disable": [
+      "lowercase-global",
+      "redundant-parameter"
+    ]
+  },
+  "workspace": {
+    "library": [
+      "/usr/share/awesome/lib"
+    ]
+  }
+}
