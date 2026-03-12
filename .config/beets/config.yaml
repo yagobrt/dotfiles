@@ -1,0 +1,12 @@
+directory: ~/Música/
+library: ~/.local/state/beets/musiclibrary.db
+import:
+  move: yes
+  copy: no
+
+plugins: missing convert edit mbsync info musicbrainz
+# lyrics
+
+lastgenre:
+  count: 3
+
