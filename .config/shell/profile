@@ -20,7 +20,9 @@ if [ -d "$GOPATH/bin" ]; then
 fi
 
 # Rust
+if [ -d "$CARGO_HOME/env" ]; then
 . "$CARGO_HOME/env"
+fi
 
 # Default programs:
 export EDITOR="nvim"
