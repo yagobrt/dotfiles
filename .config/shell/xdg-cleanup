@@ -37,3 +37,4 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
+export LEDGER_FILE="$HOME/Documentos/finanzas/main.journal"
