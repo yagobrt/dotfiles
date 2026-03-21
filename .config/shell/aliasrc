@@ -12,6 +12,7 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 
 # Aliases for cleaning the home directory
+alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias bootdev="bootdev --config $HOME/.config/bootdev/bootdev.yaml"
