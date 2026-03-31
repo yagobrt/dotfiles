@@ -46,7 +46,7 @@ map O $mimeopen --ask $f
 
 # drag and drop with dragon
 cmd dragon-out &{{
-    dragon -x -a $fx
+    dragon-drop -x -a $fx
 }}
 
 map Do dragon-out
