@@ -1,5 +1,6 @@
 .config/tmux/plugins
 .env
+*__pycache__
 
 # Musiquilla loquilla
 .config/mpd/*
