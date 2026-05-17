@@ -1,11 +1,6 @@
 # Source XDG definitions
 . ~/.config/shell/xdg-cleanup 
 
-# Set PATH to include custom binaries
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
@@ -29,13 +24,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="brave-browser"
 export SHELL="/usr/bin/zsh"
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER="nvim +Man!"
 
 # Load xresources
 xrdb -merge "$XDG_CACHE_HOME/wal/colors.Xresources"
-
-# GNOME Keyring (for Awesome WM)
-if [[ -n "$DESKTOP_SESSION" ]]; then
-    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-    export SSH_AUTH_SOCK
-fi
