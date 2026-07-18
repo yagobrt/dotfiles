@@ -47,7 +47,7 @@ multiplier = 5
 save_to_clipboard = true
 
 [terminal]
-shell = { program = "/bin/zsh", args = ["-l"] }
+shell = { program = "/usr/bin/tmux", args = ["new-session", "-A", "-D", "-s", "yago"] }
 
 [window]
 decorations = "full"
