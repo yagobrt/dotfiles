@@ -1,3 +1,3 @@
-vim.cmd([[
-	setlocal makeprg=go\ run\ .
-]])
+vim.cmd [[
+  setlocal makeprg=go\ run\ .
+]]
