@@ -1,0 +1,12 @@
+# Systemd service to stop mpd-mpris notification
+[Unit]
+Description=Manage MPD MPRIS lifecycle
+After=mpd.service
+
+[Service]
+ExecStart=%h/.local/bin/mpd-mpris-manager.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

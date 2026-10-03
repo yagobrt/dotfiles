@@ -3,12 +3,38 @@
 # If there is nothing on the playlist, kill the MPRIS notification
 # If it's paused, MPRIS notification can stay
 
-while mpc idle player playlist >/dev/null; do
+set -euo pipefail
 
-	if [[ -z "$(mpc playlist)" ]]; then
-		systemctl --user stop mpd-mpris
-		continue
-	fi
+SERVICE="mpd-mpris.service"
 
-	systemctl --user start mpd-mpris
+is_running() {
+    systemctl --user is-active --quiet "$SERVICE"
+}
+
+ensure_started() {
+    if ! is_running; then
+        systemctl --user start "$SERVICE"
+    fi
+}
+
+ensure_stopped() {
+    if is_running; then
+        systemctl --user stop "$SERVICE"
+    fi
+}
+
+# If MPD isn't running, wait
+until mpc status >/dev/null 2>&1; do
+    sleep 1
+done
+
+while true; do
+    # Wait for a change
+    mpc idle player playlist >/dev/null
+
+    if [[ -n "$(mpc playlist)" ]]; then
+        ensure_started
+    else
+        ensure_stopped
+    fi
 done
