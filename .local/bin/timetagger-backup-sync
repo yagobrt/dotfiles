@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# REMOTE="ubuntu@100.120.151.95:/home/ubuntu/backups/"
+REMOTE="vps-ovh:/home/ubuntu/backups/"
+LOCAL="$HOME/Documentos/timetagger"
+LOG="$LOCAL/sync.log"
+
+mkdir -p "$LOCAL"
+touch "$LOG"
+chmod 600 "$LOG"
+
+{
+    echo "[$(date --iso-8601=seconds)] Starting TimeTagger backup sync"
+
+    # If the VPS is unreachable, fail safely and retry next time.
+    /usr/bin/rsync -av \
+        --include='timetagger-*.tar.gz' \
+        --exclude='*' \
+        "$REMOTE" "$LOCAL/"
+
+    # Keep local archives for 90 days; preserve the log.
+    find "$LOCAL" -maxdepth 1 -type f \
+        -name 'timetagger-*.tar.gz' -mtime +90 -delete
+
+    echo "[$(date --iso-8601=seconds)] Backup sync completed"
+} >> "$LOG" 2>&1
+
