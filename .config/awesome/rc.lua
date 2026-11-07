@@ -19,7 +19,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
-local debian = require("debian.menu")
+-- local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- {{{ Error handling
@@ -61,6 +61,7 @@ beautiful.init("/home/yago/.config/awesome/default/theme.lua")
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
+browser = os.getenv("BROWSER") or "brave-browser"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -122,7 +123,7 @@ else
 	mymainmenu = awful.menu({
 		items = {
 			menu_awesome,
-			{ "Debian", debian.menu.Debian_menu.Debian },
+			-- { "Debian", debian.menu.Debian_menu.Debian },
 			menu_terminal,
 		},
 	})
@@ -322,8 +323,8 @@ globalkeys = gears.table.join(
 
 	-- Standard program
 	awful.key({ modkey }, "b", function()
-		awful.spawn("brave-browser")
-	end, { description = "open brave", group = "launcher" }),
+		awful.spawn(browser)
+	end, { description = "open browser", group = "launcher" }),
 	awful.key({ modkey }, "ñ", function()
 		awful.spawn("keepassxc")
 	end, { description = "open keepassxc", group = "launcher" }),
