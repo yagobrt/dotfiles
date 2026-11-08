@@ -1,170 +1,112 @@
-return {
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
-			{ "folke/neodev.nvim", opts = {} },
-		},
-		config = function()
-			vim.api.nvim_create_autocmd("LSPAttach", {
-				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
-				callback = function(event)
-					local nmap = function(keys, func, desc)
-						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-					end
+vim.pack.add { 'https://github.com/j-hui/fidget.nvim' }
+require('fidget').setup {}
 
-					nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-					nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+  callback = function(event)
+    local map = function(keys, func, desc, mode)
+      mode = mode or 'n'
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+    end
 
-					nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-					nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-					nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-					nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-					nmap("<leader>sS", require("telescope.builtin").lsp_document_symbols, "[S]earch document [S]ymbols")
-					nmap(
-						"<leader>ws",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
-					)
+    map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+    map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+    map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-					nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-					nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
-					vim.keymap.set(
-						"i",
-						"<C-h>",
-						vim.lsp.buf.signature_help,
-						{ buffer = event.buf, desc = "Signature Documentation" }
-					)
+    -- When you move your cursor, the highlights will be cleared.
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client and client:supports_method('textDocument/documentHighlight', event.buf) then
+      local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
+      vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        buffer = event.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.document_highlight,
+      })
 
-					-- Lesser used LSP functionality
-					nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-					nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-					nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-					nmap("<leader>wl", function()
-						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-					end, "[W]orkspace [L]ist Folders")
+      vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+        buffer = event.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.clear_references,
+      })
 
-					-- Create a command `:Format` local to the LSP buffer
-					vim.api.nvim_buf_create_user_command(event.buf, "Format", function(_)
-						vim.lsp.buf.format()
-					end, { desc = "Format current buffer with LSP" })
-				end,
-			})
+      vim.api.nvim_create_autocmd('LspDetach', {
+        group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
+        callback = function(event2)
+          vim.lsp.buf.clear_references()
+          vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
+        end,
+      })
+    end
 
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities =
-				vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities(capabilities))
+    if client and client:supports_method('textDocument/inlayHint', event.buf) then
+      map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')
+    end
 
-			local util = require("lspconfig.util")
-			local servers = {
-				clangd = {},
-				gopls = {
-					filetypes = { "go", "gomod", "gowork", "gotmpl" },
-					root_dir = util.root_pattern("go.mod", "go.work", ".git"),
-					cmd = { "gopls" },
-					settings = {
-						gopls = {
-							completeUnimported = true,
-							usePlaceholders = true,
-							analyses = {
-								unusedparams = true,
-							},
-						},
-					},
-				},
-				pyright = {},
-				rust_analyzer = {
-					filetypes = { "rust" },
-					root_dir = util.root_pattern("Cargo.toml"),
-					settings = {
-						["rust_analyzer"] = {
-							cargo = {
-								allFeatures = true,
-							},
-						},
-					},
-				},
-				-- tsserver = {},
-				-- html = { filetypes = { 'html', 'twig', 'hbs'} },
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(event.buf, 'Format', function(_) vim.lsp.buf.format() end, { desc = 'Format current buffer with LSP' })
+  end,
+})
 
-				lua_ls = {
-					settings = {
-						Lua = {
-							runtime = { version = "LuaJIT" },
-							workspace = { checkThirdParty = false },
-							telemetry = { enable = false },
-							library = {
-								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file("", true)),
-							},
-						},
-					},
-				},
-			}
-			require("mason").setup()
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, { "stylua" })
+local servers = {
+  clangd = {},
+  gopls = {},
+  pyright = {},
+  stylua = {},
 
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+  -- Special Lua Config, as recommended by neovim help docs
+  lua_ls = {
+    on_init = function(client)
+      client.server_capabilities.documentFormattingProvider = false -- Disable formatting (formatting is done by stylua)
 
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
-		end,
-	},
-	{
-		"olexsmir/gopher.nvim",
-		ft = "go",
-		config = function()
-			require("gopher").setup({
-				log_level = vim.log.levels.INFO,
-				commands = {
-					go = "go",
-					gomodifytags = "gomodifytags",
-					gotests = "gotests",
-					impl = "impl",
-					iferr = "iferr",
-					dlv = "dlv",
-				},
-				gotests = {
-					-- gotests doesn't have template named "default" so this plugin uses "default" to set the default template
-					template = "default",
-					-- path to a directory containing custom test code templates
-					template_dir = nil,
-					-- switch table tests from using slice to map (with test name for the key)
-					-- works only with gotests installed from develop branch
-					named = false,
-				},
-				gotag = {
-					transform = "snakecase",
-				},
-			})
-		end,
-		build = function()
-			vim.cmd([[silent! GoInstallDeps]])
-		end,
-		opts = {},
-	},
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		cmd = "Trouble",
-		opts = {},
-		keys = {
-			{
-				"<leader>tt",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "[T]rouble [T]oggle diagnostics",
-			},
-		},
-	},
+      if client.workspace_folders then
+        local path = client.workspace_folders[1].name
+        if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
+      end
+
+      local current_settings = client.config.settings
+      client.config.settings.Lua = vim.tbl_deep_extend('force', current_settings.Lua, {
+        runtime = {
+          version = 'LuaJIT',
+          path = { 'lua/?.lua', 'lua/?/init.lua' },
+        },
+        workspace = {
+          checkThirdParty = false,
+          -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
+          --  See https://github.com/neovim/nvim-lspconfig/issues/3189
+          library = vim.api.nvim_get_runtime_file('', true),
+        },
+      })
+    end,
+    settings = {
+      Lua = {
+        format = { enable = false }, -- Disable formatting (formatting is done by stylua)
+      },
+    },
+  },
 }
+
+vim.pack.add {
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
+}
+
+-- Automatically install LSPs and related tools to stdpath for Neovim
+require('mason').setup {}
+
+require('mason-lspconfig').setup {
+  automatic_enable = true,
+}
+
+local ensure_installed = vim.tbl_keys(servers or {})
+vim.list_extend(ensure_installed, {
+  -- You can add other tools here that you want Mason to install
+})
+
+require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+for name, server in pairs(servers) do
+  vim.lsp.config(name, server)
+  vim.lsp.enable(name)
+end

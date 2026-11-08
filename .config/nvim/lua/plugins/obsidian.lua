@@ -1,20 +1,20 @@
+vim.pack.add {
+  {
+    src = 'https://github.com/obsidian-nvim/obsidian.nvim',
+    version = vim.version.range '*', -- use latest release
+  },
+}
+
 vim.opt.conceallevel = 1
 
-return {
-  'epwalsh/obsidian.nvim',
-  lazy = false,
+require('obsidian').setup {
   ft = { 'markdown', 'md' },
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-  },
-  opts = {
-    workspaces = {
-      {
-        name = 'notas',
-        path = '~/Documentos/obsidian-notes/',
-      },
+  legacy_commands = false, -- this will be removed in 4.0.0
+  workspaces = {
+    {
+      name = 'notas',
+      path = '~/Documentos/obsidian-notes/',
     },
-    new_notes_location = 'current_dir',
-    disable_frontmatter = true,
   },
+  -- disable_frontmatter = true,
 }

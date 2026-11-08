@@ -1,54 +1,21 @@
-return {
-  'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
-  dependencies = {
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-path',
-    'rafamadriz/friendly-snippets',
-    'saecki/crates.nvim',
-    'kirasok/cmp-hledger',
-  },
-  config = function()
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
-    require('luasnip.loaders.from_vscode').lazy_load()
-    luasnip.config.setup {}
+vim.pack.add { { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range '2.*' } }
+require('luasnip').setup {}
 
-    cmp.setup {
-      snippet = {
-        expand = function(args) luasnip.lsp_expand(args.body) end,
-      },
-      completion = {
-        completeopt = 'menu,menuone,noinsert',
-      },
-      mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
-        ['<C-y>'] = cmp.mapping.confirm {
-          -- behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        },
-        ['<C-l>'] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then luasnip.expand_or_jump() end
-        end, { 'i', 's' }),
-        ['<C-h>'] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then luasnip.jump(-1) end
-        end, { 'i', 's' }),
-      },
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'crates' },
-        { name = 'hledger' },
-        { name = 'path' },
-      }, {
-        { name = 'buffer' },
-      }),
-    }
-  end,
+vim.pack.add { { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.*' } }
+
+require('blink.cmp').setup {
+  keymap = { preset = 'default' },
+  appearance = { nerd_font_variant = 'mono' },
+  completion = {
+    documentation = { auto_show = true, auto_show_delay_ms = 500 },
+  },
+  sources = {
+    default = { 'lsp', 'path', 'snippets' },
+  },
+
+  snippets = { preset = 'luasnip' },
+
+  fuzzy = { implementation = 'prefer_rust_with_warning' },
+
+  signature = { enabled = true },
 }

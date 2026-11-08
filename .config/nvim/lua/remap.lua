@@ -1,4 +1,6 @@
+-- Set leader
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -15,7 +17,7 @@ vim.diagnostic.config {
   underline = { severity = { min = vim.diagnostic.severity.WARN } },
 
   virtual_text = true, -- Text shows up at the end of the line
-  -- virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+  virtual_lines = false, -- Text shows up underneath the line, with virtual lines
 
   -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
   jump = {
@@ -28,6 +30,14 @@ vim.diagnostic.config {
     end,
   },
 }
+
+-- Highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function() vim.highlight.on_yank() end,
+  group = highlight_group,
+  pattern = '*',
+})
 
 -- Mover texto seleccionado
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -51,3 +61,9 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<leader>me', '<cmd>!chmod +x %<CR>', { desc = '[M]ake [E]xecutable' })
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = '[P]roject [V]iew' })
 vim.keymap.set('n', '<leader>cc', vim.cmd.make, { desc = '[C]ode [C]ompile' })
+
+-- Move window
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
