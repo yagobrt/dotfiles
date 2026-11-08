@@ -41,3 +41,5 @@ export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
 export LEDGER_FILE="$HOME/Documentos/finanzas/main.journal"
+export COPILOT_HOME="$HOME/.config/copilot"
+export NNN_FIFO=/tmp/nnn.fifo
