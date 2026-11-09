@@ -13,9 +13,6 @@ map gb  cd ~/Documentos/books/
 map gn  cd ~/Documentos/obsidian-notes/
 map gc  cd ~/Documentos/dotfiles/
 map gr  cd ~/Documentos/reference/
-map gu  cd ~/Documentos/uni/
-map gt cd ~/Documentos/uni/tfg/
-map gf cd ~/Documentos/uni/tfg/
 
 # Go to trash
 map gT cd ~/.local/share/Trash/files/

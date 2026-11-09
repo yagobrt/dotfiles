@@ -22,7 +22,6 @@ alias bootdev="bootdev --config $HOME/.config/bootdev/bootdev.yaml"
 # alias lf='cd "$(command lf -print-last-dir "$@")"'
 
 # Fuzzy cd
-alias uni='cd ~/Documentos/uni/ && cd "$(find */ -maxdepth 1 -type d | fzf --cycle)"'
 alias notas="cd ~/Documentos/obsidian-notes/"
 alias prog='cd ~/Documentos/programming/ && cd "$(find */ -maxdepth 1 -type d | fzf --cycle)"'
 alias cfg='cd ~/Documentos/dotfiles/ && cd "$(find .config .local -maxdepth 1 -type d | fzf --cycle)"'
