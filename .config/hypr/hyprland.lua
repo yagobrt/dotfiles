@@ -269,6 +269,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + ntilde", hl.dsp.exec_cmd(apps["contraseñas"]))
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
