@@ -1,3 +1,3 @@
 vim.cmd [[
-  setlocal makeprg=go\ run\ .
+  setlocal makeprg=go\ build
 ]]
