@@ -289,6 +289,12 @@ end
 hl.bind(mainMod .. " + Insert", hl.dsp.exec_cmd("obsidian-enlace.sh"))
 hl.bind(mainMod .. " + SHIFT + Insert", hl.dsp.exec_cmd("insert-emoji.sh"))
 
+-- Screenshots
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | swappy -f -'))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp -ro) | wl-copy"'))
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp -ro) | swappy -f -"'))
+
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
