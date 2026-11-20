@@ -9,6 +9,7 @@
 🙂 emoji: slightly smiling face
 🙃 emoji: upside-down face
 🫠 emoji: melting face
+🫫 emoji: cracking face
 😉 emoji: winking face
 😊 emoji: smiling face with smiling eyes
 😇 emoji: smiling face with halo
@@ -83,6 +84,7 @@
 😯 emoji: hushed face
 😲 emoji: astonished face
 😳 emoji: flushed face
+🫪 emoji: distorted face
 🥺 emoji: pleading face
 🥹 emoji: face holding back tears
 😦 emoji: frowning face with open mouth
@@ -156,6 +158,7 @@
 💋 emoji: kiss mark
 💯 emoji: hundred points
 💢 emoji: anger symbol
+🫯 emoji: fight cloud
 💥 emoji: collision
 💫 emoji: dizzy
 💦 emoji: sweat droplets
@@ -196,6 +199,8 @@
 🫵 emoji: index pointing at the viewer
 👍 emoji: thumbs up
 👎 emoji: thumbs down
+🫹 emoji: leftwards thumb sign
+🫺 emoji: rightwards thumb sign
 ✊ emoji: raised fist
 👊 emoji: oncoming fist
 🤛 emoji: left-facing fist
@@ -400,6 +405,7 @@
 🧟‍♂️ emoji: man zombie
 🧟‍♀️ emoji: woman zombie
 🧌 emoji: troll
+🫈 emoji: hairy creature
 💆 emoji: person getting massage
 💆‍♂️ emoji: man getting massage
 💆‍♀️ emoji: woman getting massage
@@ -445,6 +451,7 @@
 🏃‍➡️ emoji: person running facing right
 🏃‍♀️‍➡️ emoji: woman running facing right
 🏃‍♂️‍➡️ emoji: man running facing right
+🧑‍🩰 emoji: ballet dancer
 💃 emoji: woman dancing
 🕺 emoji: man dancing
 🕴️ emoji: person in suit levitating
@@ -653,6 +660,7 @@
 🐳 emoji: spouting whale
 🐋 emoji: whale
 🐬 emoji: dolphin
+🫍 emoji: orca
 🦭 emoji: seal
 🐟 emoji: fish
 🐠 emoji: tropical fish
@@ -669,6 +677,7 @@
 🦪 emoji: oyster
 🐌 emoji: snail
 🦋 emoji: butterfly
+🫌 emoji: monarch butterfly
 🐛 emoji: bug
 🐜 emoji: ant
 🐝 emoji: honeybee
@@ -740,6 +749,7 @@
 🌶️ emoji: hot pepper
 🫑 emoji: bell pepper
 🥒 emoji: cucumber
+🫝 emoji: pickle
 🥬 emoji: leafy green
 🥦 emoji: broccoli
 🧄 emoji: garlic
@@ -852,6 +862,7 @@
 🧭 emoji: compass
 🏔️ emoji: snow-capped mountain
 ⛰️ emoji: mountain
+🛘 emoji: landslide
 🌋 emoji: volcano
 🗻 emoji: mount fuji
 🏕️ emoji: camping
@@ -959,6 +970,7 @@
 🚦 emoji: vertical traffic light
 🛑 emoji: stop sign
 🚧 emoji: construction
+🛙 emoji: lighthouse
 ⚓ emoji: anchor
 🛟 emoji: ring buoy
 ⛵ emoji: sailboat
@@ -1058,6 +1070,7 @@
 ☃️ emoji: snowman
 ⛄ emoji: snowman without snow
 ☄️ emoji: comet
+🪋 emoji: meteor
 🔥 emoji: fire
 💧 emoji: droplet
 🌊 emoji: water wave
@@ -1212,6 +1225,7 @@
 🎧 emoji: headphone
 📻 emoji: radio
 🎷 emoji: saxophone
+🪊 emoji: trombone
 🪗 emoji: accordion
 🎸 emoji: guitar
 🎹 emoji: musical keyboard
@@ -1278,6 +1292,7 @@
 🏷️ emoji: label
 💰 emoji: money bag
 🪙 emoji: coin
+🪎 emoji: treasure chest
 💴 emoji: yen banknote
 💵 emoji: dollar banknote
 💶 emoji: euro banknote
@@ -1306,6 +1321,7 @@
 🖌️ emoji: paintbrush
 🖍️ emoji: crayon
 📝 emoji: memo
+🪌 emoji: eraser
 💼 emoji: briefcase
 📁 emoji: file folder
 📂 emoji: open file folder
@@ -1335,6 +1351,7 @@
 🔐 emoji: locked with key
 🔑 emoji: key
 🗝️ emoji: old key
+🪍 emoji: net with handle
 🔨 emoji: hammer
 🪓 emoji: axe
 ⛏️ emoji: pick
@@ -1743,7 +1760,7 @@
 🇬🇼 emoji: flag: Guinea-Bissau
 🇬🇾 emoji: flag: Guyana
 🇭🇰 emoji: flag: Hong Kong SAR China
-🇭🇲 emoji: flag: Heard & McDonald Islands
+🇭🇲 emoji: flag: Heard Island & McDonald Islands
 🇭🇳 emoji: flag: Honduras
 🇭🇷 emoji: flag: Croatia
 🇭🇹 emoji: flag: Haiti
@@ -1847,7 +1864,7 @@
 🇸🇩 emoji: flag: Sudan
 🇸🇪 emoji: flag: Sweden
 🇸🇬 emoji: flag: Singapore
-🇸🇭 emoji: flag: St. Helena
+🇸🇭 emoji: flag: St. Helena, Ascension & Tristan da Cunha
 🇸🇮 emoji: flag: Slovenia
 🇸🇯 emoji: flag: Svalbard & Jan Mayen
 🇸🇰 emoji: flag: Slovakia
@@ -1865,7 +1882,7 @@
 🇹🇦 emoji: flag: Tristan da Cunha
 🇹🇨 emoji: flag: Turks & Caicos Islands
 🇹🇩 emoji: flag: Chad
-🇹🇫 emoji: flag: French Southern Territories
+🇹🇫 emoji: flag: French Southern and Antarctic Lands
 🇹🇬 emoji: flag: Togo
 🇹🇭 emoji: flag: Thailand
 🇹🇯 emoji: flag: Tajikistan

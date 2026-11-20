@@ -1,8 +1,11 @@
 #!/bin/env bash
 # Copiar y pegar un enlace de mis notas de Obsidian
 
-# Configurar teclado para que no haya problemas
-setxkbmap es
+if ! command -v wl-copy >/dev/null || ! command -v wtype >/dev/null || ! command -v rofi >/dev/null; then
+	command -v notify-send >/dev/null &&
+		notify-send "No se puede copiar el enlace" "Faltan wl-clipboard, wtype o rofi"
+	exit 1
+fi
 
 cd "$HOME/Documentos/obsidian-notes/" || exit
 
@@ -15,7 +18,7 @@ fi
 link=$(echo "$selected" | sed -E 's/.*(https?:\/\/[^)]+).*/\1/')
 
 
-# Copiar al portapapeles e insertar
-echo -n "$link" | xclip -selection primary   # Mid click
-echo -n "$link" | xclip -selection clipboard # <C-v>
-xdotool key --clearmodifiers Shift+Insert
+# Copiar al portapapeles e pegar en la ventana activa
+echo -n "$link" | wl-copy --primary   # Mid click
+echo -n "$link" | wl-copy             # <C-v>
+wtype "$link"
